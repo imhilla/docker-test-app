@@ -1,0 +1,17 @@
+FROM node:lts-alpine
+
+EXPOSE 4000
+
+USER hillary
+
+RUN mkdir -p /home/hillary/app
+
+WORKDIR /home/hillary/app
+
+COPY ./package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "start"]
